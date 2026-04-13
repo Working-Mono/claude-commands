@@ -6,9 +6,12 @@ Shared slash commands for Claude Code sessions. These work in any repo, any proj
 
 | Command | What It Does |
 |---|---|
+| `/deliver <task>` | **Full Orchestrate → Build → Verify loop.** Writes verification spec, dispatches builder in worktree, runs adversarial verifier, gates completion. Use for any non-trivial work. |
 | `/verify` | Evidence-based verification before claiming work is done |
 | `/debug <thing>` | Hypothesis-driven debugging. Prevents "retry and hope" loops |
 | `/plan <what to build>` | Break work into precise, granular tasks before building |
+
+`/deliver` is the main one. It runs the full chain. The others are standalone tools for when you don't need the full loop.
 
 ## Install
 
@@ -23,7 +26,7 @@ rm -rf /tmp/claude-commands
 Or one-liner:
 
 ```bash
-mkdir -p ~/.claude/commands && curl -sL https://raw.githubusercontent.com/Working-Mono/claude-commands/main/{verify,debug,plan}.md -o ~/.claude/commands/#1.md
+mkdir -p ~/.claude/commands && curl -sL https://raw.githubusercontent.com/Working-Mono/claude-commands/main/{deliver,verify,debug,plan}.md -o ~/.claude/commands/#1.md
 ```
 
 ## Update
